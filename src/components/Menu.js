@@ -30,7 +30,11 @@ class Nav extends React.Component {
 	      
 	    }
 		this.props.getInitBalance(balance, purchased);
-	}
+  }
+
+  toID(params) {
+      reactLocalStorage.set('region', params);
+  }
 	render() {
 		if (this.props.hasErrored) {
 	      return <p>Sorry! There was an error loading the balance.</p>;
@@ -45,14 +49,6 @@ class Nav extends React.Component {
 	    		balance = balance.balance;
 	    	}
 			return (
-				// <header className="header" role="banner">
-				// 	<nav className="nav">
-				// 		<div className="nav__inner">
-				// 			<Link className="nav__link" to="/"><span className="site-logo"></span></Link>
-				// 			<div className="balance"><NumberFormat value={balance} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <p>{value}</p>} /></div>
-				// 		</div>
-				// 	</nav>
-        // </header>
         <div>
           <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
             <a className="navbar-brand customNavRight" href="">TokoFlix</a>
@@ -64,6 +60,14 @@ class Nav extends React.Component {
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
                   <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                </li>
+              </ul>
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <a onClick={() => this.toID('ID')} className="nav-link" href="/">ID <span className="sr-only">(current)</span></a>
+                </li>
+                <li className="nav-item active">
+                  <a onClick={() => this.toID('US')} className="nav-link" href="/">US <span className="sr-only">(current)</span></a>
                 </li>
               </ul>
 

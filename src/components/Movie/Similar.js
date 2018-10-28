@@ -33,19 +33,21 @@ class Similar extends React.Component {
     }else{
       return (
         <div>
-          <h1 className="subtitle">Similar: </h1>
+          <h1 className="subtitle">Film serupa: </h1>
           <ul className="row">
             {
               this.props.similars.map((similar) => {
                 return (
-                  <li key={similar.id} className="col-md-3">
+                  // <li key={similar.id} className="col-md-3">
+                  <div className="col-md-3">
                     <Link className="teaser" to={`/${similar.id}-${similar.original_title.replace(/ /g, '-')}`}>
                       <img className="profile__image" src={`${baseUrl}${imageSize}${similar.poster_path}`} alt={similar.name} />
                       <div className="similardesc">
                         <span>{similar.original_title}</span>
                       </div>
                     </Link>
-                  </li>
+                  {/* </li> */}
+                  </div>
                 );
               })
             }

@@ -40,12 +40,12 @@ class Cast extends React.Component {
                 profile_img = 'https://i.stack.imgur.com/l60Hf.png';  
               }
               return (
-                <li key={cast.id} className="col-md-3">
+                <div key={cast.id} className="col-md-3">
                   <img className="profile__image" src={profile_img} alt={cast.name} />
                   <div className="castdesc">
                     <span>{cast.name} as {cast.character}</span>
                   </div>
-                </li>
+                </div>
               );
             })
           }

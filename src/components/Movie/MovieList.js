@@ -10,7 +10,7 @@ import TextTruncate from 'react-text-truncate';
 class MovieList extends Component {
   constructor(props) {
     super(props);
-    this.state = { page: 1  };
+    this.state = { page: 1, region: ''  };
   }
 
   componentDidMount() {
@@ -41,7 +41,13 @@ class MovieList extends Component {
   }
 
   renderPage(pageNumber) {
-    const apiUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=f1f087bcabf3e275dce6c4be94cb971b&region=US&page='+pageNumber
+    if (reactLocalStorage.get('region') == undefined) {
+      reactLocalStorage.set('region', 'ID')
+    }
+    this.setState({
+     region: reactLocalStorage.get('region')
+    })
+    const apiUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=f1f087bcabf3e275dce6c4be94cb971b&region=' + reactLocalStorage.get('region') + '&page='+pageNumber
     
     this.props.fetchData(apiUrl)
     this.formatDate = this.formatDate.bind(this)

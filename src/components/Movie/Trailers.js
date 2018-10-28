@@ -43,7 +43,7 @@ class Trailers extends React.Component {
             {
               this.props.trailers.map((trailer) => {
                 return (
-                  <li key={trailer.id} className="col-md-6">
+                  <div key={trailer.id} className="col-md-6">
                     <YouTube
                       videoId={trailer.key}
                       opts={opts}
@@ -52,7 +52,7 @@ class Trailers extends React.Component {
                     <div className="trailerdesc">
                       <span>{trailer.name}</span>
                     </div>
-                  </li>
+                  </div>
                 );
               })
             }
