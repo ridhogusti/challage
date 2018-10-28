@@ -31,7 +31,7 @@ class Cast extends React.Component {
       return <img className="loader" src={loader} alt="" />;
     }else{
       return (
-        <ul className="grid">
+        <ul className="row">
           {
             this.props.casts.map((cast) => {
               // console.log(typeof cast.profile_path);
@@ -40,7 +40,7 @@ class Cast extends React.Component {
                 profile_img = 'https://i.stack.imgur.com/l60Hf.png';  
               }
               return (
-                <li key={cast.id} className="grid__col grid__col--4 align-center">
+                <li key={cast.id} className="col-md-3">
                   <img className="profile__image" src={profile_img} alt={cast.name} />
                   <div className="castdesc">
                     <span>{cast.name} as {cast.character}</span>

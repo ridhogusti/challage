@@ -14,7 +14,10 @@ import {
   castsIsLoading,
   trailers,
   trailersHasErrored,
-  trailersIsLoading
+  trailersIsLoading,
+  similars,
+  similarsHasErrored,
+  similarsIsLoading
 
    } from './movie';
 
@@ -34,5 +37,8 @@ export default combineReducers({
   castsIsLoading,
   trailers,
   trailersHasErrored,
-  trailersIsLoading
+  trailersIsLoading,
+  similars,
+  similarsHasErrored,
+  similarsIsLoading
 });

@@ -5,7 +5,7 @@ import { itemFetchData, initBalance, balancePurchase } from '../../actions/movie
 import loader from '../../img/puff.svg';
 import NumberFormat from 'react-number-format';
 import Cast from './Cast';
-// import Similar from './Similar';
+import Similar from './Similar';
 import Trailers from './Trailers';
 import Menu from '../Menu';
 import {reactLocalStorage} from 'reactjs-localstorage';
@@ -110,7 +110,7 @@ class MovieDetail extends Component {
       }else if(vote_average < 9){
         price = 16350;
       }else{
-        price = 21500;
+        price = 21250;
       }
       let ispurchased;
       if(purchased.indexOf(movid) < 0){
@@ -126,7 +126,7 @@ class MovieDetail extends Component {
           <div className="movie-details">
             <div className="teaser__image">
               <img src={poster_img} alt={original_title} />
-              {/* <Similar movieID={movid} /> */}
+              <Similar movieID={movid} />
             </div>
             <div className="wrapdesc">
               <h1 className="movie-details__heading">{title}</h1>
@@ -156,13 +156,6 @@ class MovieDetail extends Component {
 
 
 export default withRouter(connect(
-  // (state, ownProps) => ({
-  //   single: state.items.find((item) => {
-  //     if (Number(item.id) === Number(ownProps.match.params.movieId)) {
-  //       return item;
-  //     }
-  //   })
-  // }),
   state => ({
     single: state.item,
     purchasedlist: state.balance,

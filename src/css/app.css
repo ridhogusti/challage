@@ -234,6 +234,9 @@ body {
     background: #cdf7d0;
     color: #000;
   }
+  .btnbuy:hover {
+    cursor: pointer;
+  }
 .wrapperposter{
   position: relative;
 }

@@ -212,3 +212,47 @@ export function trailersFetchData(url) {
       .catch(() => dispatch(trailersHasErrored(true)));
   };
 }
+
+
+export function similarsHasErrored(bool) {
+  return {
+    type: 'SIMILAR_HAS_ERRORED',
+    hasErrored: bool
+  };
+}
+
+export function similarsIsLoading(bool) {
+  return {
+    type: 'SIMILAR_IS_LOADING',
+    isLoading: bool
+  };
+}
+
+export function similarsFetchDataSuccess(similars) {
+  return {
+    type: 'SIMILAR_FETCH_DATA_SUCCESS',
+    similars
+  };
+}
+
+export function similarsFetchData(url) {
+  return (dispatch) => {
+    dispatch(similarsIsLoading(true));
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        dispatch(similarsIsLoading(false));
+
+        return response;
+      })
+      .then((response) => response.json())
+      .then((similar) => {
+        dispatch(similarsFetchDataSuccess(similar.results));
+      })
+      .catch(() => dispatch(similarsHasErrored(true)));
+  };
+}

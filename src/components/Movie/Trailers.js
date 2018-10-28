@@ -15,7 +15,7 @@ class Trailers extends React.Component {
 
   componentDidMount() {
     const movieID = this.props.movieID;
-    const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}/videos?&api_key=a97c45944def929e56015425b27a9983`;
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}/videos?&api_key=f1f087bcabf3e275dce6c4be94cb971b`;
 
     this.props.fetchData(apiUrl);
   }
@@ -39,11 +39,11 @@ class Trailers extends React.Component {
       return (
         <div>
           <h1 className="subtitle">Trailers: </h1>
-          <ul className="grid">
+          <ul className="row">
             {
               this.props.trailers.map((trailer) => {
                 return (
-                  <li key={trailer.id} className="grid__col grid__col--6 align-center">
+                  <li key={trailer.id} className="col-md-6">
                     <YouTube
                       videoId={trailer.key}
                       opts={opts}
@@ -64,7 +64,6 @@ class Trailers extends React.Component {
     
   }
   _onReady(event) {
-    // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
 }

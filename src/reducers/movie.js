@@ -143,3 +143,30 @@ export function trailers(state = [], action) {
       return state;
   }
 }
+
+export function similarsHasErrored(state = false, action) {
+  switch (action.type) {
+    case 'SIMILAR_HAS_ERRORED':
+      return action.hasErrored;
+    default:
+      return state;
+  }
+}
+
+export function similarsIsLoading(state = false, action) {
+  switch (action.type) {
+    case 'SIMILAR_IS_LOADING':
+      return action.isLoading;
+    default:
+      return state;
+  }
+}
+
+export function similars(state = [], action) {
+  switch (action.type) {
+    case 'SIMILAR_FETCH_DATA_SUCCESS':
+      return action.similars;
+    default:
+      return state;
+  }
+}
