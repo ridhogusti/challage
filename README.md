@@ -11,8 +11,6 @@ The app using react, redux, redux-thunk, and react-router-dom.
 ```
 > git clone https://github.com/ridhogusti/challage.git
 > npm install
-> cat .env
-> REACT_APP_SECRET_CODE=YOUR_ACCESS_KEY
 > npm start
 ```
 #### Authors
