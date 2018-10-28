@@ -60,6 +60,9 @@ class Nav extends React.Component {
                 <li className="nav-item active">
                   <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                 </li>
+								<li className="nav-item active">
+                  <a className="nav-link" href="/moviepopular">Popular <span className="sr-only">(current)</span></a>
+                </li>
               </ul>
               <ul className="navbar-nav">
                 <li className="nav-item active">

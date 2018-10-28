@@ -12,6 +12,7 @@ import '../src/css/app.css';
 import { createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import MoviePopular from './components/MoviePopular';
 
 
 const history = createBrowserHistory()
@@ -30,6 +31,7 @@ class App extends Component {
           <Router history={history}>
             <Switch>
               <Route exact path="/" component={Home}></Route>
+              <Route exact path="/moviepopular" component={MoviePopular}></Route>
               <Route exact path="/:Id" component={MovieDetail}></Route>
               <Redirect from='*' to='/' />
             </Switch>

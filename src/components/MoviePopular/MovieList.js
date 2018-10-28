@@ -30,14 +30,14 @@ class MovieList extends Component {
     await this.setState({
       page: this.state.page - 1
     })
-    this.props.history.push(`/?page=${this.state.page}`)
+    this.props.history.push(`/moviepopular?page=${this.state.page}`)
     this.renderPage(this.state.page)
   }
   async next() {
     await this.setState({
       page: parseInt(this.state.page) + 1
     })
-    await this.props.history.push(`/?page=${this.state.page}`)
+    await this.props.history.push(`/moviepopular?page=${this.state.page}`)
     await this.renderPage(this.state.page)
   }
 
@@ -48,7 +48,8 @@ class MovieList extends Component {
     this.setState({
      region: reactLocalStorage.get('region')
     })
-    const apiUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=f1f087bcabf3e275dce6c4be94cb971b&region=' + reactLocalStorage.get('region') + '&page='+pageNumber
+    console.log(reactLocalStorage.get('region'), 'asoeunth');
+    const apiUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=f1f087bcabf3e275dce6c4be94cb971b&region=' + reactLocalStorage.get('region') + '&page='+pageNumber
     
     this.props.fetchData(apiUrl)
     this.formatDate = this.formatDate.bind(this)
@@ -131,18 +132,11 @@ class MovieList extends Component {
         )
       }
 
-      let negara = ''
-
-      if (reactLocalStorage.get('region') == 'ID') {
-        negara = 'INDONESIA' 
-      }else if (reactLocalStorage.get('region') == 'US') {
-        negara = 'AMERIKA SERIKAT'
-      }
-
       return (
         <div className="container">
         <br/>
-          <h1>Film { negara }</h1>
+        <h2>Film popular semua negara</h2>
+
           <div className="row">
           { 
             items.map((item, index) => {
