@@ -256,3 +256,48 @@ export function similarsFetchData(url) {
       .catch(() => dispatch(similarsHasErrored(true)));
   };
 }
+
+
+
+export function recomendedsHasErrored(bool) {
+  return {
+    type: 'RECOMENDED_HAS_ERRORED',
+    hasErrored: bool
+  };
+}
+
+export function recomendedsIsLoading(bool) {
+  return {
+    type: 'RECOMENDED_IS_LOADING',
+    isLoading: bool
+  };
+}
+
+export function recomendedsFetchDataSuccess(recomendeds) {
+  return {
+    type: 'RECOMENDED_FETCH_DATA_SUCCESS',
+    recomendeds
+  };
+}
+
+export function recomendedsFetchData(url) {
+  return (dispatch) => {
+    dispatch(recomendedsIsLoading(true));
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        dispatch(recomendedsIsLoading(false));
+
+        return response;
+      })
+      .then((response) => response.json())
+      .then((recomended) => {
+        dispatch(recomendedsFetchDataSuccess(recomended.results));
+      })
+      .catch(() => dispatch(recomendedsHasErrored(true)));
+  };
+}

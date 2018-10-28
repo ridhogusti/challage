@@ -41,7 +41,7 @@ class MovieList extends Component {
   }
 
   renderPage(pageNumber) {
-    if (reactLocalStorage.get('region') == undefined) {
+    if (reactLocalStorage.get('region') === undefined) {
       reactLocalStorage.set('region', 'ID')
     }
     this.setState({

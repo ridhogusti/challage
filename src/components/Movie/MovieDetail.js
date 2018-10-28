@@ -9,6 +9,7 @@ import Similar from './Similar';
 import Trailers from './Trailers';
 import Menu from '../Menu';
 import {reactLocalStorage} from 'reactjs-localstorage';
+import Recomended from './Recomended';
 
 
 class MovieDetail extends Component {
@@ -50,7 +51,6 @@ class MovieDetail extends Component {
       purchased = purchased.purchasedlist;
       reactLocalStorage.set('balance', this.props.purchasedlist);
     }else if(reactLocalStorage.get('balance')){
-      console.log(reactLocalStorage.get('balance'));
       let JSONbalance = JSON.parse(reactLocalStorage.get('balance'));
       purchased = JSONbalance.purchasedlist;
       balance   = JSONbalance.balance;
@@ -144,6 +144,9 @@ class MovieDetail extends Component {
             </div>
             <div className="wrapsimilar">
               <Trailers movieID={movid} />
+            </div>
+            <div className="wrapsimilar">
+              <Recomended movieID={movid} />
             </div>
           </div>
         </main>

@@ -144,6 +144,8 @@ export function trailers(state = [], action) {
   }
 }
 
+
+
 export function similarsHasErrored(state = false, action) {
   switch (action.type) {
     case 'SIMILAR_HAS_ERRORED':
@@ -166,6 +168,33 @@ export function similars(state = [], action) {
   switch (action.type) {
     case 'SIMILAR_FETCH_DATA_SUCCESS':
       return action.similars;
+    default:
+      return state;
+  }
+}
+
+export function recomendedsHasErrored(state = false, action) {
+  switch (action.type) {
+    case 'RECOMENDED_HAS_ERRORED':
+      return action.hasErrored;
+    default:
+      return state;
+  }
+}
+
+export function recomendedsIsLoading(state = false, action) {
+  switch (action.type) {
+    case 'RECOMENDED_IS_LOADING':
+      return action.isLoading;
+    default:
+      return state;
+  }
+}
+
+export function recomendeds(state = [], action) {
+  switch (action.type) {
+    case 'RECOMENDED_FETCH_DATA_SUCCESS':
+      return action.recomendeds;
     default:
       return state;
   }

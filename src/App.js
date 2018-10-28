@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-dom';
+import { Router, Route, Switch, Redirect  } from 'react-router-dom';
 import createBrowserHistory from "history/createBrowserHistory";
 
 import { Provider } from 'react-redux';
@@ -10,7 +9,7 @@ import MovieDetail from './components/Movie/MovieDetail';
 import '../src/css/app.css';
 
 // Setting store
-import { createStore, applyMidlleware, compose, applyMiddleware} from 'redux';
+import { createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 

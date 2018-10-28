@@ -39,7 +39,7 @@ class Similar extends React.Component {
               this.props.similars.map((similar) => {
                 return (
                   // <li key={similar.id} className="col-md-3">
-                  <div className="col-md-3">
+                  <div key={similar.id} className="col-md-3">
                     <Link className="teaser" to={`/${similar.id}-${similar.original_title.replace(/ /g, '-')}`}>
                       <img className="profile__image" src={`${baseUrl}${imageSize}${similar.poster_path}`} alt={similar.name} />
                       <div className="similardesc">

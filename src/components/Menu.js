@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {Link} from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 import { initBalance } from '../actions/movie';
 import loader from '../img/puff.svg';
