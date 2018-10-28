@@ -5,6 +5,7 @@ import loader from '../../img/puff.svg';
 import {Link, withRouter} from 'react-router-dom';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import TextTruncate from 'react-text-truncate';
+import NumberFormat from 'react-number-format';
 
 
 class MovieList extends Component {
@@ -142,6 +143,19 @@ class MovieList extends Component {
               }else{
                 ispurchased = '<div>Purchased</div>';
               }
+
+              let price = 0;
+              if(item.vote_average < 4){
+                price = 3500;
+              }else if(item.vote_average < 7){
+                price = 8250;
+              }else if(item.vote_average < 9){
+                price = 16350;
+              }else{
+                price = 21250;
+              }
+              let viewPrice;
+              viewPrice = <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <span>{value}</span>} />;
               return (
                 <div key={index} className="col-md-4 teaser">
                 <div className="ispurchased" dangerouslySetInnerHTML={{__html: ispurchased}}></div>
@@ -160,6 +174,9 @@ class MovieList extends Component {
                           />
                         <div className="teaser__meta">
                           <span className="teaser__label">{item.vote_average}/10</span>
+                        </div>
+                        <div className="teaser__meta">
+                          <span className="teaser__label">{viewPrice}</span>
                         </div>
                       </div>
                     </div>
