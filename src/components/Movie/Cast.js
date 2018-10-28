@@ -14,7 +14,7 @@ class Cast extends React.Component {
 
   componentDidMount() {
     const movieID = this.props.movieID;
-    const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}/credits?&api_key=a97c45944def929e56015425b27a9983`;
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}/credits?&api_key=f1f087bcabf3e275dce6c4be94cb971b`;
 
     this.props.fetchData(apiUrl);
   }

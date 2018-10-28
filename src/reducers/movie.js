@@ -116,3 +116,30 @@ export function casts(state = [], action) {
       return state;
   }
 }
+
+export function trailersHasErrored(state = false, action) {
+  switch (action.type) {
+    case 'TRAILERS_HAS_ERRORED':
+      return action.hasErrored;
+    default:
+      return state;
+  }
+}
+
+export function trailersIsLoading(state = false, action) {
+  switch (action.type) {
+    case 'TRAILERS_IS_LOADING':
+      return action.isLoading;
+    default:
+      return state;
+  }
+}
+
+export function trailers(state = [], action) {
+  switch (action.type) {
+    case 'TRAILERS_FETCH_DATA_SUCCESS':
+      return action.trailers;
+    default:
+      return state;
+  }
+}

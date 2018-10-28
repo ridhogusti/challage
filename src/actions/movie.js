@@ -170,3 +170,45 @@ export function castFetchData(url) {
       .catch(() => dispatch(castsHasErrored(true)));
   };
 }
+
+export function trailersHasErrored(bool) {
+  return {
+    type: 'TRAILERS_HAS_ERRORED',
+    hasErrored: bool
+  };
+}
+
+export function trailersIsLoading(bool) {
+  return {
+    type: 'TRAILERS_IS_LOADING',
+    isLoading: bool
+  };
+}
+
+export function trailersFetchDataSuccess(trailers) {
+  return {
+    type: 'TRAILERS_FETCH_DATA_SUCCESS',
+    trailers
+  };
+}
+
+export function trailersFetchData(url) {
+  return (dispatch) => {
+    dispatch(trailersIsLoading(true));
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        dispatch(trailersIsLoading(false));
+        return response;
+      })
+      .then((response) => response.json())
+      .then((trailers) => {
+        dispatch(trailersFetchDataSuccess(trailers.results));
+      })
+      .catch(() => dispatch(trailersHasErrored(true)));
+  };
+}

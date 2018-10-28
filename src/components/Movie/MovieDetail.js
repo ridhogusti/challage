@@ -6,7 +6,7 @@ import loader from '../../img/puff.svg';
 import NumberFormat from 'react-number-format';
 import Cast from './Cast';
 // import Similar from './Similar';
-// import Trailers from './Trailers';
+import Trailers from './Trailers';
 import Menu from '../Menu';
 import {reactLocalStorage} from 'reactjs-localstorage';
 
@@ -37,7 +37,7 @@ class MovieDetail extends Component {
 
   renderPage(){
     let movieID = this.props.match.params.Id.split('-');
-    let apiUrl = `https://api.themoviedb.org/3/movie/${movieID[0]}?&api_key=a97c45944def929e56015425b27a9983`;
+    let apiUrl = `https://api.themoviedb.org/3/movie/${movieID[0]}?&api_key=f1f087bcabf3e275dce6c4be94cb971b`;
 
     this.props.fetchData(apiUrl);
     this.setState({url: this.props.location.pathname})
@@ -142,9 +142,9 @@ class MovieDetail extends Component {
                 <Cast movieID={movid} />
               </div>
             </div>
-            {/* <div className="wrapsimilar">
+            <div className="wrapsimilar">
               <Trailers movieID={movid} />
-            </div> */}
+            </div>
           </div>
         </main>
       );  
